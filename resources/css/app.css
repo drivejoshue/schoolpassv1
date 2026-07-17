@@ -1,0 +1,639 @@
+@import '@tabler/core/dist/css/tabler.min.css';
+@import '@tabler/icons-webfont/dist/tabler-icons.min.css';
+
+/*
+|--------------------------------------------------------------------------
+| SchoolPass — variables globales
+|--------------------------------------------------------------------------
+*/
+
+:root,
+[data-bs-theme="light"] {
+    color-scheme: light;
+
+    --sp-primary: #2563eb;
+    --sp-primary-rgb: 37, 99, 235;
+
+    --sp-page-bg: #f4f6fa;
+    --sp-surface: #ffffff;
+    --sp-surface-soft: #f8fafc;
+
+    --sp-sidebar-bg: #ffffff;
+    --sp-topbar-bg: #ffffff;
+
+    --sp-text: #182433;
+    --sp-muted: #667085;
+
+    --sp-border: rgba(15, 23, 42, 0.09);
+    --sp-border-strong: rgba(15, 23, 42, 0.14);
+
+    --sp-shadow:
+        0 1px 2px rgba(15, 23, 42, 0.03),
+        0 8px 24px rgba(15, 23, 42, 0.04);
+
+    /*
+     * Sobrescritura controlada de variables Tabler.
+     */
+    --tblr-primary: var(--sp-primary);
+    --tblr-primary-rgb: var(--sp-primary-rgb);
+
+    --tblr-body-bg: var(--sp-page-bg);
+    --tblr-body-color: var(--sp-text);
+
+    --tblr-bg-surface: var(--sp-surface);
+    --tblr-border-color: var(--sp-border);
+
+    --tblr-secondary-color: var(--sp-muted);
+
+    --tblr-link-color: var(--sp-primary);
+    --tblr-link-hover-color: #1d4ed8;
+}
+
+[data-bs-theme="dark"] {
+    color-scheme: dark;
+
+    --sp-primary: #60a5fa;
+    --sp-primary-rgb: 96, 165, 250;
+
+    --sp-page-bg: #101827;
+    --sp-surface: #1b2638;
+    --sp-surface-soft: #202d40;
+
+    --sp-sidebar-bg: #172234;
+    --sp-topbar-bg: #172234;
+
+    --sp-text: #e5edf7;
+    --sp-muted: #91a4b8;
+
+    --sp-border: rgba(255, 255, 255, 0.08);
+    --sp-border-strong: rgba(255, 255, 255, 0.14);
+
+    --sp-shadow: none;
+
+    --tblr-primary: var(--sp-primary);
+    --tblr-primary-rgb: var(--sp-primary-rgb);
+
+    --tblr-body-bg: var(--sp-page-bg);
+    --tblr-body-color: var(--sp-text);
+
+    --tblr-bg-surface: var(--sp-surface);
+    --tblr-border-color: var(--sp-border);
+
+    --tblr-secondary-color: var(--sp-muted);
+
+    --tblr-link-color: #93c5fd;
+    --tblr-link-hover-color: #bfdbfe;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Documento y estructura principal
+|--------------------------------------------------------------------------
+*/
+
+html,
+body {
+    min-height: 100%;
+    background-color: var(--sp-page-bg);
+    color: var(--sp-text);
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.page {
+    min-height: 100vh;
+    background-color: var(--sp-page-bg);
+}
+
+.page-wrapper {
+    min-height: 100vh;
+    background-color: var(--sp-page-bg);
+}
+
+.page-body {
+    background-color: var(--sp-page-bg);
+}
+
+.sp-page-body {
+    padding-top: 1.25rem;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Contenedores
+|--------------------------------------------------------------------------
+*/
+
+.sp-container {
+    width: 100%;
+    max-width: none !important;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Sidebar
+|--------------------------------------------------------------------------
+*/
+
+.navbar-vertical,
+.sp-sidebar {
+    background-color: var(--sp-sidebar-bg);
+    border-color: var(--sp-border);
+    box-shadow: none;
+}
+
+.navbar-vertical .navbar-brand {
+    border-bottom-color: var(--sp-border);
+}
+
+.navbar-vertical .nav-link {
+    color: var(--sp-muted);
+    border-radius: 0.625rem;
+    margin: 0.125rem 0.5rem;
+    transition:
+        color 0.15s ease,
+        background-color 0.15s ease;
+}
+
+.navbar-vertical .nav-link:hover {
+    color: var(--sp-text);
+    background-color: var(--sp-surface-soft);
+}
+
+.navbar-vertical .nav-link.active {
+    color: var(--sp-primary);
+    background-color: rgba(var(--sp-primary-rgb), 0.11);
+    font-weight: 600;
+}
+
+.navbar-vertical .nav-link-icon {
+    color: inherit;
+}
+
+.sp-sidebar-section {
+    color: var(--sp-muted);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Topbar
+|--------------------------------------------------------------------------
+*/
+
+.page-wrapper > .navbar,
+.sp-topbar {
+    background-color: var(--sp-topbar-bg);
+    border-bottom: 1px solid var(--sp-border);
+    box-shadow: none;
+}
+
+.navbar {
+    color: var(--sp-text);
+}
+
+.navbar-brand,
+.navbar-brand a {
+    color: var(--sp-text);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Encabezados y textos
+|--------------------------------------------------------------------------
+*/
+
+.page-title,
+.card-title,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--sp-text);
+}
+
+.page-pretitle,
+.subheader,
+.text-secondary,
+.text-muted {
+    color: var(--sp-muted) !important;
+}
+
+a {
+    color: var(--tblr-link-color);
+}
+
+a:hover {
+    color: var(--tblr-link-hover-color);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Tarjetas
+|--------------------------------------------------------------------------
+*/
+
+.card {
+    background-color: var(--sp-surface);
+    color: var(--sp-text);
+    border-color: var(--sp-border);
+    box-shadow: var(--sp-shadow);
+}
+
+.card-header,
+.card-footer {
+    background-color: transparent;
+    border-color: var(--sp-border);
+}
+
+.card-header:first-child {
+    border-radius:
+        var(--tblr-card-border-radius)
+        var(--tblr-card-border-radius)
+        0
+        0;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Tablas
+|--------------------------------------------------------------------------
+*/
+
+.table {
+    --tblr-table-bg: transparent;
+    --tblr-table-color: var(--sp-text);
+    --tblr-table-border-color: var(--sp-border);
+    --tblr-table-striped-bg: var(--sp-surface-soft);
+    --tblr-table-hover-bg: var(--sp-surface-soft);
+
+    color: var(--sp-text);
+}
+
+.table > :not(caption) > * > * {
+    color: inherit;
+    background-color: transparent;
+    border-bottom-color: var(--sp-border);
+}
+
+.table thead th {
+    color: var(--sp-muted);
+    background-color: transparent;
+}
+
+.table-hover > tbody > tr:hover > * {
+    background-color: var(--sp-surface-soft);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Formularios
+|--------------------------------------------------------------------------
+*/
+
+.form-control,
+.form-select,
+.input-group-text {
+    color: var(--sp-text);
+    background-color: var(--sp-surface);
+    border-color: var(--sp-border-strong);
+}
+
+.form-control:focus,
+.form-select:focus {
+    color: var(--sp-text);
+    background-color: var(--sp-surface);
+    border-color: rgba(var(--sp-primary-rgb), 0.55);
+    box-shadow: 0 0 0 0.25rem rgba(var(--sp-primary-rgb), 0.12);
+}
+
+.form-control::placeholder {
+    color: var(--sp-muted);
+    opacity: 0.8;
+}
+
+.form-control:disabled,
+.form-select:disabled {
+    color: var(--sp-muted);
+    background-color: var(--sp-surface-soft);
+}
+
+.form-check-input {
+    background-color: var(--sp-surface);
+    border-color: var(--sp-border-strong);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Dropdowns, modales y paneles
+|--------------------------------------------------------------------------
+*/
+
+.dropdown-menu,
+.modal-content,
+.offcanvas,
+.list-group-item {
+    color: var(--sp-text);
+    background-color: var(--sp-surface);
+    border-color: var(--sp-border);
+}
+
+.dropdown-item {
+    color: var(--sp-text);
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    color: var(--sp-text);
+    background-color: var(--sp-surface-soft);
+}
+
+.dropdown-divider {
+    border-color: var(--sp-border);
+}
+
+.modal-header,
+.modal-footer,
+.offcanvas-header {
+    border-color: var(--sp-border);
+}
+
+.list-group-item-action:hover,
+.list-group-item-action:focus {
+    color: var(--sp-text);
+    background-color: var(--sp-surface-soft);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Navegación secundaria y pestañas
+|--------------------------------------------------------------------------
+*/
+
+.nav-tabs {
+    border-color: var(--sp-border);
+}
+
+.nav-tabs .nav-link {
+    color: var(--sp-muted);
+}
+
+.nav-tabs .nav-link:hover {
+    color: var(--sp-text);
+    border-color: var(--sp-border);
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--sp-primary);
+    background-color: var(--sp-surface);
+    border-color:
+        var(--sp-border)
+        var(--sp-border)
+        var(--sp-surface);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Paginación
+|--------------------------------------------------------------------------
+*/
+
+.page-link {
+    color: var(--sp-text);
+    background-color: var(--sp-surface);
+    border-color: var(--sp-border);
+}
+
+.page-link:hover {
+    color: var(--sp-primary);
+    background-color: var(--sp-surface-soft);
+    border-color: var(--sp-border);
+}
+
+.page-item.active .page-link {
+    color: #ffffff;
+    background-color: var(--sp-primary);
+    border-color: var(--sp-primary);
+}
+
+.page-item.disabled .page-link {
+    color: var(--sp-muted);
+    background-color: var(--sp-surface-soft);
+    border-color: var(--sp-border);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Progress
+|--------------------------------------------------------------------------
+*/
+
+.progress {
+    background-color: var(--sp-surface-soft);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Código
+|--------------------------------------------------------------------------
+*/
+
+code,
+pre {
+    color: var(--sp-primary);
+}
+
+.sp-json {
+    color: var(--sp-text);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Footer
+|--------------------------------------------------------------------------
+*/
+
+.footer,
+.sp-footer {
+    color: var(--sp-muted);
+    background-color: transparent;
+    border-top: 1px solid var(--sp-border);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Selector de tema
+|--------------------------------------------------------------------------
+*/
+
+.sp-theme-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+[data-bs-theme="light"] .sp-theme-icon-sun {
+    display: none;
+}
+
+[data-bs-theme="dark"] .sp-theme-icon-moon {
+    display: none;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Elementos propios de SchoolPass
+|--------------------------------------------------------------------------
+*/
+
+.sp-brand-mark {
+    width: 2.25rem;
+    height: 2.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+
+    color: #ffffff;
+    background-color: #2563eb;
+    border-radius: 0.65rem;
+    font-weight: 700;
+}
+
+.sp-stat-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+
+    border-radius: 0.75rem;
+    font-size: 1.3rem;
+}
+
+.sp-definition-list {
+    display: grid;
+    grid-template-columns: minmax(8rem, 11rem) minmax(0, 1fr);
+    gap: 0.7rem 1rem;
+    margin: 0;
+}
+
+.sp-definition-list dt {
+    color: var(--sp-muted);
+    font-weight: 500;
+}
+
+.sp-definition-list dd {
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Pantallas de autenticación
+|--------------------------------------------------------------------------
+*/
+
+.auth-bg {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(37, 99, 235, 0.28),
+            transparent 32rem
+        ),
+        linear-gradient(
+            135deg,
+            #0f172a 0%,
+            #111827 52%,
+            #1e293b 100%
+        );
+}
+
+.auth-brand-mark {
+    width: 48px;
+    height: 48px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+    background-color: #2563eb;
+
+    border-radius: 16px;
+    box-shadow: 0 14px 30px rgba(37, 99, 235, 0.35);
+}
+
+.auth-card {
+    border: 0;
+    border-radius: 24px;
+    box-shadow: 0 24px 80px rgba(15, 23, 42, 0.28);
+}
+
+.auth-side-card {
+    color: #ffffff;
+
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 28px;
+    backdrop-filter: blur(14px);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Ajustes específicos del tema oscuro
+|--------------------------------------------------------------------------
+*/
+
+[data-bs-theme="dark"] .navbar-brand-autodark {
+    filter: none;
+}
+
+[data-bs-theme="dark"] .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+[data-bs-theme="dark"] .auth-card {
+    background-color: var(--sp-surface);
+}
+
+[data-bs-theme="dark"] .alert {
+    border-color: var(--sp-border);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Responsive
+|--------------------------------------------------------------------------
+*/
+
+@media (max-width: 767.98px) {
+    .sp-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .sp-page-body {
+        padding-top: 1rem;
+    }
+
+    .sp-definition-list {
+        grid-template-columns: 1fr;
+        gap: 0.2rem;
+    }
+
+    .sp-definition-list dd {
+        margin-bottom: 0.75rem;
+    }
+}
